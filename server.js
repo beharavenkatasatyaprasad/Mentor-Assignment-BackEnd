@@ -5,7 +5,6 @@ const mongodb = require('mongodb');
 const mongoClient = mongodb.MongoClient;
 const url = "mongodb+srv://satyabehara:ftjrbtc9S1@cluster0.u3j3r.mongodb.net/mentorassignment?retryWrites=true&w=majority";
 const cors = require('cors');
-const port = process.env.PORT || 3000
 
 app.use(cors({
     origin : "https://mentor-assignment-webapp.netlify.app/"
@@ -90,4 +89,4 @@ app.get("/mentor", async function(req,res){
     }
 })
 
-app.listen(port);
+app.listen(process.env.PORT || 3000);
