@@ -89,4 +89,19 @@ app.get("/mentor", async function(req,res){
     }
 })
 
+
+app.put('/mentor/assignStudent', async function(req,res){
+    try {
+        let client = await mongoClient.connect(url);
+        let db = client.db('mentorassignment');
+        await db.collection('mentors').findOneAndUpdate({name : req.body.mentor},{$push: {studentList : req.body.studentName}});
+        await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorAssigned : true}});
+        await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorName : req.body.mentor }});
+        client.close();
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
 app.listen(process.env.PORT || 3000);
