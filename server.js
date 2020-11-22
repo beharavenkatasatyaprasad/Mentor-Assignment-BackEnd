@@ -6,19 +6,16 @@ const mongoClient = mongodb.MongoClient;
 const url = "mongodb+srv://satyabehara:ftjrbtc9S1@cluster0.u3j3r.mongodb.net/mentorassignment?retryWrites=true&w=majority";
 const cors = require('cors');
 
-app.use((req,res,next)=>{
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
+app.options('*', cors())
+
 
 app.use(bodyParser.json());
 
-app.get("/", (req,res)=>{
+app.get("/",cors(), (req,res)=>{
     res.send("Hello From Server");
 });
 
-app.get("/student", async function(req,res){
+app.get("/student", cors(), async function(req,res){
     try {
         let client = await mongoClient.connect(url);
     let db = client.db("mentorassignment");
@@ -32,7 +29,7 @@ app.get("/student", async function(req,res){
     }
 })
 
-app.post("/student", async function (req,res){
+app.post("/student",cors(), async function (req,res){
    try {
     let client  = await mongoClient.connect(url);
     let db = client.db("mentorassignment");
@@ -55,7 +52,7 @@ app.post("/student", async function (req,res){
    }
 })
 
-app.post("/mentor", async function(req,res){
+app.post("/mentor",cors(), async function(req,res){
     try {
         let client = await mongoClient.connect(url);
         let db = client.db("mentorassignment");
@@ -77,7 +74,7 @@ app.post("/mentor", async function(req,res){
     }
 })
 
-app.get("/mentor", async function(req,res){
+app.get("/mentor",cors(), async function(req,res){
     try {
         let client = await mongoClient.connect(url);
     let db = client.db("mentorassignment");
@@ -92,7 +89,7 @@ app.get("/mentor", async function(req,res){
 })
 
 
-app.put('/mentor/assignStudent', async function(req,res){
+app.put('/mentor/assignStudent',cors(), async function(req,res){
     try {
         let client = await mongoClient.connect(url);
         let db = client.db('mentorassignment');
