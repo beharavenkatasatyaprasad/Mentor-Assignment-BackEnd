@@ -109,7 +109,7 @@ app.put('/mentor/UpdateMentor',cors(), async function(req,res){
         await db.collection('mentors').findOneAndUpdate({name : req.body.OldMentor},{$pull: {studentList : req.body.studentName}});
         await db.collection('mentors').findOneAndUpdate({name : req.body.NewMentor},{$push: {studentList : req.body.studentName}});
         await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorAssigned : true}});
-        await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorName : req.body.mentor }});
+        await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorName : req.body.NewMentor }});
         client.close();
     } catch (error) {
         console.log(error);
