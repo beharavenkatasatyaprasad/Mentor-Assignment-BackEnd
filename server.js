@@ -6,9 +6,11 @@ const mongoClient = mongodb.MongoClient;
 const url = "mongodb+srv://satyabehara:ftjrbtc9S1@cluster0.u3j3r.mongodb.net/mentorassignment?retryWrites=true&w=majority";
 const cors = require('cors');
 
-app.use(cors({
-    origin : "https://mentor-assignment-webapp.netlify.app"
-}))
+app.use((req,res,next)=>{
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 
 app.use(bodyParser.json());
 
