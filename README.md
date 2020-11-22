@@ -13,8 +13,9 @@ It is the server for [mentor-assignment-webapp](https://mentor-assignment-webapp
 <code><img height="26" src="https://img.icons8.com/color/144/000000/mongodb.png" alt="MongodB"></code>
 
 ### node modules used:
-- cors
 - express
+- cors
+- body-parser
 - mongodb
 
 ### Endpoints:
