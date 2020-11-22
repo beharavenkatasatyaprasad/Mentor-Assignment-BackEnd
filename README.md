@@ -1,10 +1,10 @@
 ## Welcome! 👋
 
-Thanks for checking out this repo [Mentor-Assignment-Webapp](https://github.com/beharavenkatasatyaprasad/Mentor-Assignment-Webapp/).
+Thanks for checking out this repo [Mentor-Assignment-BackEnd](https://github.com/beharavenkatasatyaprasad/Mentor-Assignment-BackEnd).
 
-## Mentor-Assignment-Webapp
+## Mentor-Assignment-BackEnd 
 
-Click [here](https://mentor-assignment-webapp.netlify.app/) to preview the app in action.
+It is the server for [mentor-assignment-webapp](https://mentor-assignment-webapp.netlify.app/)
 
 ### Technologies Used:
 
