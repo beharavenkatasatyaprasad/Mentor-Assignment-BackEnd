@@ -107,7 +107,7 @@ app.put('/mentor/UpdateMentor',cors(), async function(req,res){
         let client = await mongoClient.connect(url);
         let db = client.db('mentorassignment');
         await db.collection('mentors').findOneAndUpdate({name : req.body.OldMentor},{$pop: {studentList : req.body.studentName}});
-        await db.collection('mentors').findOneAndUpdate({name : req.body.NewMentor},{$push: {studentList : req.body.NewstudentName}});
+        await db.collection('mentors').findOneAndUpdate({name : req.body.NewMentor},{$push: {studentList : req.body.studentName}});
         await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorAssigned : true}});
         await db.collection('students').findOneAndUpdate({name : req.body.studentName}, {$set : {mentorName : req.body.mentor }});
         client.close();
